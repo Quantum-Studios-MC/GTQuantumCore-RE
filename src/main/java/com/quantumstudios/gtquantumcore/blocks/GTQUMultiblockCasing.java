@@ -1,0 +1,54 @@
+package com.quantumstudios.gtquantumcore.blocks;
+
+import org.jetbrains.annotations.NotNull;
+
+import gregtech.api.block.VariantBlock;
+import net.minecraft.block.SoundType;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.util.IStringSerializable;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
+
+public class GTQUMultiblockCasing extends VariantBlock<GTQUMultiblockCasing.CasingType>
+{
+	public GTQUMultiblockCasing() 
+	{
+        super(Material.IRON);
+        setTranslationKey("gtqu_multiblock_casing");
+        setHardness(5.0f);
+        setResistance(10.0f);
+        setSoundType(SoundType.METAL);
+        setHarvestLevel("wrench", 2);
+        setDefaultState(getState(CasingType.SEALED_CASING));
+    }
+	
+	public enum CasingType implements IStringSerializable 
+	{
+
+		SEALED_CASING("tombac_casing"),
+        NICKEL_STEEL_CASING("nickel_steel_casing"),
+        CAST_IRON_CASING("cast_iron_casing"),
+        SEISMIC_CASING("seismic_casing");
+
+        private final String name;
+
+        CasingType(String name) 
+        {
+            this.name = name;
+        }
+        
+        @Override
+        public @NotNull String getName() {
+            return this.name;
+		}
+	}
+	
+	@Override
+    public boolean canCreatureSpawn(@NotNull IBlockState state, @NotNull IBlockAccess world, @NotNull BlockPos pos,
+                                    @NotNull EntityLiving.SpawnPlacementType type) 
+	{
+        return false;
+    }
+}
