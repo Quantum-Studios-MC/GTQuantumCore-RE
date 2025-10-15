@@ -1,11 +1,9 @@
 package com.quantumstudios.gtquantumcore.common.metatileentities.Multiblocks.steam;
 
-import com.quantumstudios.gtquantumcore.GTQuantumCoreValues;
 import com.quantumstudios.gtquantumcore.api.IBellowHatch;
 import com.quantumstudios.gtquantumcore.api.capability.impl.MultiblockAbilities;
 import com.quantumstudios.gtquantumcore.recipes.RecipeMapsHandler;
 import com.quantumstudios.gtquantumcore.render.TexturesHandler;
-import com.quantumstudios.gtquantumcore.utils.GTQuantumCoreTooltipHelper;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.api.metatileentity.multiblock.IMultiblockPart;
@@ -19,23 +17,19 @@ import gregtech.common.blocks.BlockFireboxCasing;
 import gregtech.common.blocks.BlockMetalCasing;
 import gregtech.common.blocks.MetaBlocks;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.resources.I18n;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextFormatting;
-import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
 
-import javax.annotation.Nullable;
 import java.util.List;
 
-public class SteamVulcanisationVat extends GTQuantumCoreRecipeMapSteamMultiblockController {
+public class SteamPaperMill extends GTQuantumCoreRecipeMapSteamMultiblockController {
 
     private int parallelLimit = 1;
 
-    public SteamVulcanisationVat(ResourceLocation metaTileEntityId) {
-        super(metaTileEntityId, RecipeMapsHandler.VULCANISATION_VAT, CONVERSION_RATE);
+    public SteamPaperMill(ResourceLocation metaTileEntityId) {
+        super(metaTileEntityId, RecipeMapsHandler.PAPER_MILLING, CONVERSION_RATE);
         // Initialize the custom recipe logic with parallel processing
         this.recipeMapWorkable = new GTQuantumCoreSteamMultiblockRecipeLogic(this, CONVERSION_RATE);
         // Set parallel limit (will be updated by bellows)
@@ -70,9 +64,9 @@ public class SteamVulcanisationVat extends GTQuantumCoreRecipeMapSteamMultiblock
     @Override
     protected @NotNull BlockPattern createStructurePattern() {
         return FactoryBlockPattern.start()
-                .aisle("FFF", "CCC", "CCC")
-                .aisle("FFF", "CCC", "C#C")
-                .aisle("FFF", "CSC", "CCC")
+                .aisle("FFF", "FFF", "CCC", "CCC")
+                .aisle("FFF", "FFF", "CCC", "C#C")
+                .aisle("FFF", "FFF", "CSC", "CCC")
 
                 .where('F', states(getFireboxCasing()).setMinGlobalLimited(1))
                 .where('C', states(getCasing()).setMinGlobalLimited(13)
@@ -148,12 +142,12 @@ public class SteamVulcanisationVat extends GTQuantumCoreRecipeMapSteamMultiblock
 
     @Override
     protected @NotNull ICubeRenderer getFrontOverlay() {
-        return TexturesHandler.STEAM_ABF_OVERLAY;
+        return TexturesHandler.GENERAL_SMELTER_OVERLAY_2;
     }
 
     @Override
     public MetaTileEntity createMetaTileEntity(IGregTechTileEntity tileEntity) {
-        return new SteamVulcanisationVat(metaTileEntityId);
+        return new SteamPaperMill(metaTileEntityId);
     }
 
 }

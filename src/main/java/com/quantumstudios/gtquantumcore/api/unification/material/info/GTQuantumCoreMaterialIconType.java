@@ -17,4 +17,9 @@ public class GTQuantumCoreMaterialIconType {
     public static final MaterialIconType curvedplate = new MaterialIconType("curvedplate");
     public static final MaterialIconType thread = new MaterialIconType("thread");
     public static final MaterialIconType yarn = new MaterialIconType("yarn");
+    public static final MaterialIconType structural = new MaterialIconType("structural");
+    public static final MaterialIconType structural_c = new MaterialIconType("structural_c");
+    public static final MaterialIconType bar = new MaterialIconType("bar");
+    public static final MaterialIconType cake = new MaterialIconType("cake");
+    public static final MaterialIconType briquette = new MaterialIconType("briquette");
 }

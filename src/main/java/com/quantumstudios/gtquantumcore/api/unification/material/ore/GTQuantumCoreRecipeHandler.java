@@ -43,10 +43,9 @@ public class GTQuantumCoreRecipeHandler {
         GTQuantumCoreOrePrefix.billet.addProcessingHandler(PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
         GTQuantumCoreOrePrefix.mesh.addProcessingHandler(PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
         GTQuantumCoreOrePrefix.piston.addProcessingHandler(PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
-        GTQuantumCoreOrePrefix.wiredense.addProcessingHandler(PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        GTQuantumCoreOrePrefix.wireDense.addProcessingHandler(PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
         GTQuantumCoreOrePrefix.tablet.addProcessingHandler(PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
         GTQuantumCoreOrePrefix.hook.addProcessingHandler(PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
-
     }
 
 

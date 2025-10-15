@@ -15,7 +15,6 @@ import gregtech.api.pattern.FactoryBlockPattern;
 import gregtech.api.util.TextComponentUtil;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.renderer.texture.Textures;
-import gregtech.common.blocks.BlockFireboxCasing;
 import gregtech.common.blocks.BlockMetalCasing;
 import gregtech.common.blocks.MetaBlocks;
 import net.minecraft.block.state.IBlockState;
@@ -30,12 +29,12 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class SteamVulcanisationVat extends GTQuantumCoreRecipeMapSteamMultiblockController {
+public class SteamWoodVarnisher extends GTQuantumCoreRecipeMapSteamMultiblockController {
 
     private int parallelLimit = 1;
 
-    public SteamVulcanisationVat(ResourceLocation metaTileEntityId) {
-        super(metaTileEntityId, RecipeMapsHandler.VULCANISATION_VAT, CONVERSION_RATE);
+    public SteamWoodVarnisher(ResourceLocation metaTileEntityId) {
+        super(metaTileEntityId, RecipeMapsHandler.WOOD_VARNISHING, CONVERSION_RATE);
         // Initialize the custom recipe logic with parallel processing
         this.recipeMapWorkable = new GTQuantumCoreSteamMultiblockRecipeLogic(this, CONVERSION_RATE);
         // Set parallel limit (will be updated by bellows)
@@ -68,24 +67,6 @@ public class SteamVulcanisationVat extends GTQuantumCoreRecipeMapSteamMultiblock
     }
 
     @Override
-    protected @NotNull BlockPattern createStructurePattern() {
-        return FactoryBlockPattern.start()
-                .aisle("FFF", "CCC", "CCC")
-                .aisle("FFF", "CCC", "C#C")
-                .aisle("FFF", "CSC", "CCC")
-
-                .where('F', states(getFireboxCasing()).setMinGlobalLimited(1))
-                .where('C', states(getCasing()).setMinGlobalLimited(13)
-                        .or(autoAbilities(true, true, true, true, true))
-                        .or(abilities(MultiblockAbility.IMPORT_FLUIDS))
-                        .or(abilities(MultiblockAbility.EXPORT_FLUIDS))
-                        .or(abilities(MultiblockAbilities.BELLOW_HATCH))) // Add bellow hatch support
-                .where('S', selfPredicate())
-                .where('#', any())
-                .build();
-    }
-
-    @Override
     protected void addDisplayText(List<ITextComponent> textList) {
         super.addDisplayText(textList);
 
@@ -115,45 +96,59 @@ public class SteamVulcanisationVat extends GTQuantumCoreRecipeMapSteamMultiblock
         }
     }
 
+    @Override
+    protected @NotNull BlockPattern createStructurePattern() {
+        return FactoryBlockPattern.start()
+                .aisle("FFF", "FFF", "FFF", "#F#")
+                .aisle("FFF", "FFF", "FFF", "FFF")
+                .aisle("FFF", "FFF", "FSF", "#F#")
+                .where('S', selfPredicate())
+                .where('F', states(getCasingState()).setMinGlobalLimited(7)
+                        .or(autoAbilities(true, true, true, true, true))
+                        .or(abilities(MultiblockAbility.IMPORT_FLUIDS))
+                        .or(abilities(MultiblockAbility.EXPORT_FLUIDS))
+                        .or(abilities(MultiblockAbilities.BELLOW_HATCH))) // Add bellow hatch support
+                .where('#', any())
+                .build();
+    }
 
     @Override
     public int getItemOutputLimit() {
-        return 1;
+        return 3;
     }
 
     @Override
     public int getFluidOutputLimit() {
-        return 1;
+        return 3;
     }
 
-    private static IBlockState getCasing() {
+    private static IBlockState getCasingState() {
         return MetaBlocks.METAL_CASING.getState(BlockMetalCasing.MetalCasingType.BRONZE_BRICKS);
-    }
-
-    private static IBlockState getFireboxCasing() {
-        return MetaBlocks.BOILER_FIREBOX_CASING.getState(BlockFireboxCasing.FireboxCasingType.BRONZE_FIREBOX);
     }
 
     @Override
     public ICubeRenderer getBaseTexture(IMultiblockPart sourcePart) {
-        if (sourcePart != null && isFireboxPart(sourcePart)) {
-            return lastActive ? Textures.BRONZE_FIREBOX_ACTIVE : Textures.BRONZE_FIREBOX;
-        }
         return Textures.BRONZE_PLATED_BRICKS;
-    }
-
-    private boolean isFireboxPart(IMultiblockPart sourcePart) {
-        return isStructureFormed() && (((MetaTileEntity) sourcePart).getPos().getY() < getPos().getY());
     }
 
     @Override
     protected @NotNull ICubeRenderer getFrontOverlay() {
-        return TexturesHandler.STEAM_ABF_OVERLAY;
+        return TexturesHandler.GENERAL_ELECTRIC_OVERLAY_2;
     }
 
     @Override
     public MetaTileEntity createMetaTileEntity(IGregTechTileEntity tileEntity) {
-        return new SteamVulcanisationVat(metaTileEntityId);
+        return new SteamWoodVarnisher(metaTileEntityId);
     }
 
+    @Override
+    public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, boolean advanced) {
+        super.addInformation(stack, player, tooltip, advanced);
+        GTQuantumCoreTooltipHelper.addGTQuantumCoreInformation(tooltip);
+        tooltip.add(I18n.format("gtquantumcore.machine.author") + " " +
+                GTQuantumCoreValues.FORMAT_IRIS_1 + I18n.format("gtquantumcore.machine.author.iris.1") +
+                GTQuantumCoreValues.FORMAT_IRIS_2 + I18n.format("gtquantumcore.machine.author.iris.2") +
+                GTQuantumCoreValues.FORMAT_IRIS_3 + I18n.format("gtquantumcore.machine.author.iris.3")
+        );
+    }
 }

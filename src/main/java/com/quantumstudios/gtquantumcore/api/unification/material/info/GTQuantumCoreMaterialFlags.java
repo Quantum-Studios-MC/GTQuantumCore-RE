@@ -67,4 +67,29 @@ public class GTQuantumCoreMaterialFlags {
 
     public static final MaterialFlag GENERATE_YARN = new MaterialFlag.Builder("generate_yarn")
             .build();
+
+    public static final MaterialFlag GENERATE_CAKE = new MaterialFlag.Builder("generate_cake")
+            .build();
+
+    public static final MaterialFlag GENERATE_STRUCTURAL = new MaterialFlag.Builder("generate_structure")
+            .requireProps(PropertyKey.INGOT)
+            .requireFlags(MaterialFlags.GENERATE_BOLT_SCREW)
+            .requireFlags(MaterialFlags.GENERATE_PLATE)
+            .requireFlags(MaterialFlags.GENERATE_ROD)
+            .build();
+
+    public static final MaterialFlag GENERATE_BAR = new MaterialFlag.Builder("generate_bar")
+            .requireProps(PropertyKey.INGOT)
+            .requireFlags(MaterialFlags.GENERATE_LONG_ROD)
+            .build();
+
+    public static final MaterialFlag GENERATE_STRUCTURAL_C = new MaterialFlag.Builder("generate_structure_c")
+            .requireFlags(MaterialFlags.GENERATE_BOLT_SCREW)
+            .requireFlags(MaterialFlags.GENERATE_PLATE)
+            .requireFlags(MaterialFlags.GENERATE_LONG_ROD)
+            .build();
+
+    public static final MaterialFlag GENERATE_BRIQUETTE = new MaterialFlag.Builder("generate_briquette")
+            .build();
+
 }

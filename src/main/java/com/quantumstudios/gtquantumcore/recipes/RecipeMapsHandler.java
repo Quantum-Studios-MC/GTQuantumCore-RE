@@ -52,4 +52,10 @@ public class RecipeMapsHandler
 
 	public static final RecipeMap<SimpleRecipeBuilder> SEAWATER_PROCESSING_RECIPES = new RecipeMap<>("seawater_processor", 2, 9, 3, 2,
 			new SimpleRecipeBuilder().duration(10).EUt(6), false);
+
+	public static final RecipeMap<SimpleRecipeBuilder> WOOD_VARNISHING = new RecipeMap<>("wood_varnishing", 1, 1, 1, 0,
+			new SimpleRecipeBuilder().duration(10).EUt(6), false);
+
+	public static final RecipeMap<SimpleRecipeBuilder> PAPER_MILLING = new RecipeMap<>("paper_milling", 1, 2, 1, 1,
+			new SimpleRecipeBuilder().duration(10).EUt(6), false);
 }

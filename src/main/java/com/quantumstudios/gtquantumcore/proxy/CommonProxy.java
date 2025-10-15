@@ -29,7 +29,6 @@ public class CommonProxy
 
   public void init(FMLInitializationEvent e)
   {
-     MultiblockHandler.init();
   }
 
     public void init() {

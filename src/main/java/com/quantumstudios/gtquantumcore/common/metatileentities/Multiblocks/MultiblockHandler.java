@@ -26,6 +26,9 @@ public class MultiblockHandler
 	public static SteamGlassFurnace GLASS_FURNACE;
 	public static SteamOreWasher STEAM_ORE_WASHER;
 	public static SteamMoltenSteelFurnace MOLTEN_STEEL_FURNACE;
+	public static SteamWoodVarnisher STEAM_WOOD_VARNISHER;
+	public static SteamPaperMill STEAM_PAPER_MILL;
+
 
 	// Electrical Multiblocks
 	public static ElectricalSprengelPump ELECTRICAL_SPRENGEL_PUMP;
@@ -106,5 +109,12 @@ public class MultiblockHandler
 
 		TECTONIC_RESONANCE_ENGINE = registerMetaTileEntity(11039,
 				new MetaTileEntityTectonicResonanceEngine(gregtechId("tectonic_resonance_engine")));
+
+		STEAM_WOOD_VARNISHER = registerMetaTileEntity(31000,
+				new SteamWoodVarnisher(gregtechId("steam_wood_varnisher")));
+
+		STEAM_PAPER_MILL = registerMetaTileEntity(31001,
+				new SteamPaperMill(gregtechId("steam_paper_mill")));
+
 	}
 }

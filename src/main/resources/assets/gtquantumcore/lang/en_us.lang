@@ -1,0 +1,112 @@
+# OrePrefixes
+
+item.material.oreprefix.mesh=%s Mesh
+item.material.oreprefix.billet=%s Billet
+item.material.oreprefix.ntmpipe=%s Pipe
+item.material.oreprefix.wireDense=%s Dense Wire
+item.material.oreprefix.shell=%s Shell
+item.material.oreprefix.plateTriple=Cast %s Plate
+item.material.oreprefix.plateSextuple=Welded %s Plate
+item.material.oreprefix.piston=%s Piston
+item.material.oreprefix.hook=%s Hook
+item.material.oreprefix.nanites=%s Nanites
+item.material.oreprefix.tablet=Runed %s Tablet
+item.material.oreprefix.curvedplate=Curved %s Plate
+item.material.oreprefix.yarn=%s Yarn
+item.material.oreprefix.structural=%s Structural Component (I-Beam)
+item.material.oreprefix.structural_c=%s Structural Component (C-Beam)
+item.material.oreprefix.bar=%s Bar
+item.material.oreprefix.cake=%s Cake
+item.material.oreprefix.briquette=%s Briquette
+
+# Tools
+
+item.gt.tool.spindle.name=%s Spindle
+gt.tool.class.spindle=Spindle
+
+item.gt.tool.needle.name=%s Needle
+gt.tool.class.needle=Sewing Needle
+
+item.gt.tool.pot.name=%s Pot
+gt.tool.class.pot=Pot
+
+item.gt.tool.power_fist.name=Vault-Tec Certified LV %s Power Fist
+item.gt.tool.power_fist_mv.name=Brotherhood of Steel Enscribed MV %s Power Fist
+item.gt.tool.power_fist_hv.name=Caesar's HV %s Power Fist
+item.gt.tool.shock_prod.name=%s Shock Prod
+item.gt.tool.shock_prod_mv.name=%s Shock Prod
+item.gt.tool.shock_prod_hv.name=%s Shock Prod
+item.gt.tool.sledgehammer.name=%s Sledgehammer
+
+gt.tool.class.shock_prod=Shock Prod.. Don't get any ideas.
+
+#Tooltips
+
+# Tooltips
+gtquantumcore.machine.author=Author:
+gtquantumcore.machine.author.iris.1=iris
+gtquantumcore.machine.author.iris.2=the
+gtquantumcore.machine.author.iris.3=pianist
+
+gtquantumcore.machine.author.felix=FelixFenix
+
+gtquantumcore.machine.author.kimeni=Kimeni
+
+item.gt.tool.shock_prod.tooltip=An electric prod that shocks enemies
+item.gt.tool.shock_prod_mv.tooltip=An electric prod that shocks enemies
+item.gt.tool.shock_prod_hv.tooltip=An electric prod that shocks enemies
+
+gregtech.machine.construction_chamber.tooltip=Making Big Machines
+
+# Messages
+
+gtquantumcore.tool.shock_prod.no_power=Shock Prod has no power!
+
+# Multis
+
+gregtech.machine.electrical_sprengel_pump.name=Electrical Sprengel Pump
+gregtech.machine.steam_alloy_blast_furnace.name=Steam Alloy Blast Furnace
+gregtech.machine.steam_sprengel_pump.name=Steam Sprengel Pump
+gregtech.machine.steam_wiremill.name=Steam Wiremill
+gregtech.machine.steam_strand_caster.name=Steam Strand Caster
+gregtech.machine.steam_vulcanisation_vat.name=Steam Vulcanisation Vat
+gregtech.machine.electrical_loom.name=Electrical Loom
+gregtech.machine.latex_extractor.name=Steam Latex Extractor
+gregtech.machine.construction_chamber.name=Steam Construction Chamber
+gregtech.machine.steam_roaster.name=Steam Roaster
+gregtech.machine.steam_vapor_condensator.name=Steam Condensation Chamber
+gregtech.machine.steam_sluice.name=Steam Sluice
+gregtech.machine.electrical_component_factory.name=Electrical Component Factory
+gregtech.machine.glass_furnace.name=Glass Furnace
+gregtech.machine.steam_ore_washer.name=Steam Ore Washer
+gregtech.machine.vacuum_still.name=Vacuum Still
+gregtech.machine.molten_steel_furnace.name=Steam Molten Steel Furnace
+gregtech.machine.steam_wood_varnisher.name=Steam Wood Varnisher
+gregtech.machine.steam_paper_mill.name=Steam Paper Mill
+
+# Casings
+tile.gtqu_multiblock_casing.tombac_casing.name=Sealed Tombac Casing
+tile.gtqu_multiblock_casing.nickel_steel_casing.name=Nickel Steel Casing
+tile.gtqu_multiblock_casing.cast_iron_casing.name=Castiron Casing
+tile.gtqu_multiblock_casing.seismic_casing.name=Seismic Casing
+
+# Recipemaps
+
+recipemap.electrical_sprengel_pump.name=Vacuumization
+recipemap.electrical_loom.name=Powered Loom
+recipemap.component_factory.name=Component Factory
+recipemap.seawater_processing.name=Seawater Processing
+recipemap.thermal_crystallizer.name=Thermal Crystallizer
+recipemap.tectonic_resonance.name=Tectonic Resonance
+recipemap.steam_alloy_furnace.name=Steam Alloy Blast Furnace
+recipemap.steam_sprengel_pump.name=Primitive Vacuumization
+recipemap.vulcanisation_vat.name=Primitive Vulcanising
+recipemap.latex_extractor.name=Latex Extracting
+recipemap.construction_chamber.name=Construction Chamber
+recipemap.roaster.name=Roasting
+recipemap.condensation_chamber.name=Vapor Condensation
+recipemap.sluice.name=Sluice
+recipemap.glass_furnace.name=Glass Furnace
+recipemap.molten_steel_furnace.name=Molten Steel Crucible
+recipemap.wood_varnishing.name=Wood Varnishing
+recipemap.paper_milling.name=Paper Milling

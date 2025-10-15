@@ -32,11 +32,15 @@ public class GTQuantumCoreExtraFlags {
         plateSextuple();
         piston();
         hook();
-//        nanites();
         tablet();
         curvedplate();
         thread();
         yarn();
+        structural();
+        bar();
+        structural_c();
+        cake();
+        briquette();
     }
 
     private static void mesh() {
@@ -54,13 +58,13 @@ public class GTQuantumCoreExtraFlags {
     private static void shell() {
         Material[] materials = {RedAlloy, WroughtIron, Iron, Steel, Gold, Silver, Uranium235};
 
-        setFlags(materials, GTQuantumCoreMaterialFlags.GENERATE_DENSE_WIRE);
+        setFlags(materials, GTQuantumCoreMaterialFlags.GENERATE_SHELL);
     }
 
     private static void densewire() {
         Material[] materials = {RedAlloy, WroughtIron, Iron, Steel, Gold, Silver, Uranium235};
 
-        setFlags(materials, GTQuantumCoreMaterialFlags.GENERATE_SHELL);
+        setFlags(materials, GTQuantumCoreMaterialFlags.GENERATE_DENSE_WIRE);
     }
 
     private static void ntmpipe() {
@@ -111,4 +115,33 @@ public class GTQuantumCoreExtraFlags {
         Material[] materials = {RedAlloy, WroughtIron, Iron, Steel, Gold, Silver, Uranium235};
         setFlags(materials, GTQuantumCoreMaterialFlags.GENERATE_YARN);
     }
+
+    private static void cake() {
+        Material[] materials = {RedAlloy, WroughtIron, Iron, Steel, Gold, Silver, Uranium235};
+        setFlags(materials, GTQuantumCoreMaterialFlags.GENERATE_CAKE);
+    }
+
+    private static void structural() {
+        Material[] materials = {RedAlloy, Iron, Steel, Gold};
+        setFlags(materials, GTQuantumCoreMaterialFlags.GENERATE_STRUCTURAL);
+    }
+
+    private static void bar() {
+        Material[] materials = {Iron, Steel};
+        setFlags(materials, GTQuantumCoreMaterialFlags.GENERATE_BAR);
+
+    }
+
+    private static void structural_c() {
+        Material[] materials = {Iron};
+        setFlags(materials, GTQuantumCoreMaterialFlags.GENERATE_STRUCTURAL_C);
+
+    }
+
+    private static void briquette() {
+        Material[] materials = {Coal, Coke, Charcoal};
+        setFlags(materials, GTQuantumCoreMaterialFlags.GENERATE_BRIQUETTE);
+
+    }
+
 }

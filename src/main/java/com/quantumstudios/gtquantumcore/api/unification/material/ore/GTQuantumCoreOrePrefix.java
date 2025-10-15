@@ -18,7 +18,7 @@ public class GTQuantumCoreOrePrefix {
             , null, GTQuantumCoreMaterialIconType.billet,
             ENABLE_UNIFICATION, mat -> mat.hasFlag(GTQuantumCoreMaterialFlags.GENERATE_BILLET));
 
-    public static final OrePrefix wiredense = new OrePrefix("wiredense", M, null, GTQuantumCoreMaterialIconType.wiredense,
+    public static final OrePrefix wireDense = new OrePrefix("wireDense", M, null, GTQuantumCoreMaterialIconType.wiredense,
             ENABLE_UNIFICATION, mat -> mat.hasFlag(GTQuantumCoreMaterialFlags.GENERATE_DENSE_WIRE));
 
     public static final OrePrefix ntmpipe = new OrePrefix("ntmpipe", M * 3, null, GTQuantumCoreMaterialIconType.ntmpipe,
@@ -50,4 +50,19 @@ public class GTQuantumCoreOrePrefix {
 
     public static final OrePrefix yarn = new OrePrefix("yarn", -1, null, GTQuantumCoreMaterialIconType.yarn,
             ENABLE_UNIFICATION, mat -> mat.hasFlag(GTQuantumCoreMaterialFlags.GENERATE_YARN));
+
+    public static final OrePrefix structural = new OrePrefix("structural", -1, null, GTQuantumCoreMaterialIconType.structural,
+            ENABLE_UNIFICATION, mat -> mat.hasFlag(GTQuantumCoreMaterialFlags.GENERATE_STRUCTURAL));
+
+    public static final OrePrefix structural_c = new OrePrefix("structural_c", -1, null, GTQuantumCoreMaterialIconType.structural_c,
+            ENABLE_UNIFICATION, mat -> mat.hasFlag(GTQuantumCoreMaterialFlags.GENERATE_STRUCTURAL_C));
+
+    public static final OrePrefix bar = new OrePrefix("bar", -1, null, GTQuantumCoreMaterialIconType.bar,
+            ENABLE_UNIFICATION, mat -> mat.hasFlag(GTQuantumCoreMaterialFlags.GENERATE_BAR));
+
+    public static final OrePrefix cake = new OrePrefix("cake", -1, null, GTQuantumCoreMaterialIconType.cake,
+            ENABLE_UNIFICATION, mat -> mat.hasFlag(GTQuantumCoreMaterialFlags.GENERATE_CAKE));
+
+    public static final OrePrefix briquette = new OrePrefix("briquette", -1, null, GTQuantumCoreMaterialIconType.briquette,
+            ENABLE_UNIFICATION, mat -> mat.hasFlag(GTQuantumCoreMaterialFlags.GENERATE_BRIQUETTE));
 }

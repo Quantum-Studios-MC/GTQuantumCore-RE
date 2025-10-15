@@ -40,7 +40,6 @@ import java.util.*;
 
 public class MetaTileEntityTectonicResonanceEngine extends RecipeMapMultiblockController {
 
-    // Resonance System State
     private int resonanceFrequency = 0;
     private int geologicalStability = 100;
     private int seismicAmplitude = 0;
@@ -48,18 +47,15 @@ public class MetaTileEntityTectonicResonanceEngine extends RecipeMapMultiblockCo
     private int operationCooldown = 0;
     private Random random = new Random();
 
-    // Ore Generation Tracking
     private Map<ChunkPos, Integer> processedChunks = new HashMap<>();
 
-    // Performance optimizations - Caches and queues
     private Map<Material, Map<StoneType, IBlockState>> oreMapCache = new HashMap<>();
     private Map<String, Material[]> materialArrayCache = new HashMap<>();
     private Queue<OreGenerationTask> oreGenerationQueue = new ArrayDeque<>();
     private long lastCacheClean = 0;
 
-    // Configuration constants - INCREASED ORE GENERATION
-    private static final int MAX_CHUNK_OPERATIONS = 5; // Increased from 3
-    private static final int OPERATION_COOLDOWN_TICKS = 4800; // Reduced from 6000 (4 minutes)
+    private static final int MAX_CHUNK_OPERATIONS = 5;
+    private static final int OPERATION_COOLDOWN_TICKS = 4800;
     private static final int RESONANCE_BUILD_RATE = 1;
     private static final int STABILITY_DECAY_RATE = 2;
     private static final int DRILLING_MUD_CONSUMPTION = 200;
@@ -67,7 +63,7 @@ public class MetaTileEntityTectonicResonanceEngine extends RecipeMapMultiblockCo
     private static final int MIN_FREQUENCY_FOR_OPERATION = 50;
     private static final int MIN_STABILITY_FOR_OPERATION = 30;
     private static final int CACHE_CLEAN_INTERVAL = 6000;
-    private static final int MAX_ORES_PER_TICK = 3; // Reduced to spread load better
+    private static final int MAX_ORES_PER_TICK = 3;
 
     // Inner class for queued ore generation tasks
     private static class OreGenerationTask {
@@ -129,7 +125,7 @@ public class MetaTileEntityTectonicResonanceEngine extends RecipeMapMultiblockCo
         return TexturesHandler.GENERAL_ELECTRIC_OVERLAY_3;
     }
 
-    // Main Machine Logic - Optimized with safety checks
+
     @Override
     protected void updateFormedValid() {
         super.updateFormedValid();
@@ -138,7 +134,6 @@ public class MetaTileEntityTectonicResonanceEngine extends RecipeMapMultiblockCo
         tickCounter = (tickCounter + 1) % 20;
         if (operationCooldown > 0) operationCooldown--;
 
-        // Process queued ore generation tasks to spread workload
         processOreGenerationQueue();
 
         // Clean cache periodically to prevent memory leaks
@@ -147,11 +142,9 @@ public class MetaTileEntityTectonicResonanceEngine extends RecipeMapMultiblockCo
             lastCacheClean = getOffsetTimer();
         }
 
-        // Check system resources (only when needed)
         boolean powered = energyContainer != null && energyContainer.getEnergyStored() > 0;
         boolean hasDrillingMud = false;
 
-        // Only check drilling mud if powered (early exit optimization)
         if (powered) {
             hasDrillingMud = drainFluid(Materials.Concrete.getFluid(DRILLING_MUD_CONSUMPTION));
         }
@@ -168,7 +161,6 @@ public class MetaTileEntityTectonicResonanceEngine extends RecipeMapMultiblockCo
         recipeMapWorkable.setWorkingEnabled(false);
     }
 
-    // Process a limited number of ore generation tasks per tick
     private void processOreGenerationQueue() {
         int processed = 0;
         while (!oreGenerationQueue.isEmpty() && processed < MAX_ORES_PER_TICK) {
@@ -180,7 +172,6 @@ public class MetaTileEntityTectonicResonanceEngine extends RecipeMapMultiblockCo
         }
     }
 
-    // Clean caches to prevent memory leaks
     private void cleanCaches() {
         if (oreMapCache.size() > 50) {
             oreMapCache.clear();
@@ -269,7 +260,6 @@ public class MetaTileEntityTectonicResonanceEngine extends RecipeMapMultiblockCo
         return oreMap;
     }
 
-    // Cached material arrays for ore selection - EXPANDED ORE VARIETY
     private Material[] getMaterialArrayCached(String type) {
         if (materialArrayCache.containsKey(type)) {
             return materialArrayCache.get(type);
@@ -314,11 +304,10 @@ public class MetaTileEntityTectonicResonanceEngine extends RecipeMapMultiblockCo
     }
 
     private void generateOreDeposits(ChunkPos chunk) {
-        int oreVeins = calculateOreVeins(); // Now generates vein count instead of ore count
+        int oreVeins = calculateOreVeins();
 
         for (int i = 0; i < oreVeins; i++) {
-            // Spread ore veins across wider area (not just one chunk)
-            int x = chunk.x * 16 + random.nextInt(32) - 8; // Can extend into neighboring chunks
+            int x = chunk.x * 16 + random.nextInt(32) - 8;
             int z = chunk.z * 16 + random.nextInt(32) - 8;
             int y = 5 + random.nextInt(60);
 
